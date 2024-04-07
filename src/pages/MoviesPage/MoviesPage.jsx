@@ -1,3 +1,5 @@
+import css from "./MoviesPage.module.css";
+
 const MoviesPage = () => {
   const heandleSubmit = (e) => {
     e.preventDefault();
@@ -8,16 +10,21 @@ const MoviesPage = () => {
   };
 
   return (
-    <form onSubmit={heandleSubmit}>
-      <input
-        type="text"
-        required
-        placeholder="Search movie..."
-        autoFocus
-        name="name"
-      />
-      <button>Search</button>
-    </form>
+    <div>
+      <form onSubmit={heandleSubmit} className={css.form}>
+        <input
+          type="text"
+          required
+          placeholder="Search movie..."
+          autoFocus
+          name="name"
+          className={css.input}
+        />
+        <button type="submit" className={css.btn}>
+          Search
+        </button>
+      </form>
+    </div>
   );
 };
 

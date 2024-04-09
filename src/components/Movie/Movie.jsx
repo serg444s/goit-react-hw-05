@@ -6,7 +6,14 @@ const Movie = ({ movie }) => {
   return (
     <div className={css.container}>
       <div className={css.wrap}>
-        <img src={`${baseURL}/${movie.backdrop_path}`} className={css.img} />
+        <img
+          src={
+            movie.backdrop_path
+              ? `${baseURL}/${movie.backdrop_path}`
+              : "../../../img/movie.jpg"
+          }
+          className={css.img}
+        />
       </div>
       <Link to={`/movies/${movie.id}`}>
         <h3 className={css.title}>{movie.title}</h3>

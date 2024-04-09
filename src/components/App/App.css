@@ -5,7 +5,6 @@
   text-align: center;
 }
 
-
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -27,4 +26,17 @@
 
 .read-the-docs {
   color: #888;
+}
+
+body {
+  background-color: #2980b9;
+  background-image: linear-gradient(to bottom, #2980b9, #6dd5fa);
+}
+
+.container {
+  width: 1020px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(rgb(201, 214, 255), rgb(226, 226, 226));
+  border-radius: 8px;
 }

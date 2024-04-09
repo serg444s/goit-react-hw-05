@@ -2,7 +2,7 @@
   margin: 0 auto;
   display: flex;
   gap: 32px;
-  margin-bottom: 64px;
+  margin-bottom: 16px;
 }
 
 .link {
@@ -11,7 +11,7 @@
 }
 
 .active {
-  background-color: #646cff;
+  background: linear-gradient(to bottom, #2980b9, #6dd5fa);
   border-radius: 16px;
   padding: 4px;
   color: rgb(240, 255, 36);

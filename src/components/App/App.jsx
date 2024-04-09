@@ -10,7 +10,7 @@ import Navigation from "../Navigation/Navigation";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />

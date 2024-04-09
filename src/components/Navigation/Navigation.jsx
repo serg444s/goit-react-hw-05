@@ -10,10 +10,10 @@ const Navigation = () => {
   return (
     <nav className={css.nav}>
       <NavLink to="/" className={buildLinkClass}>
-        Home Page
+        Home
       </NavLink>
       <NavLink to="/movies" className={buildLinkClass}>
-        Movies Page
+        Movies
       </NavLink>
     </nav>
   );

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loader from "../../components/Loader/Loader";
+import css from "./HomePage.module.css";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -11,14 +12,11 @@ const HomePage = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const abortController = new AbortController(); //Создаем новый контроллер
-    const signal = abortController.signal;
-
     const fetchData = async () => {
       try {
         setError(false);
         setLoading(true);
-        const data = await fetchTrendingMovies(signal);
+        const data = await fetchTrendingMovies();
         setMovies(data.results);
       } catch (error) {
         setError(error);
@@ -28,9 +26,6 @@ const HomePage = () => {
       }
     };
     fetchData();
-    return () => {
-      abortController.abort(); // Отмена запроса при размонтировании компонента
-    };
   }, []);
 
   return (

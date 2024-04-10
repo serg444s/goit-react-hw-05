@@ -9,9 +9,9 @@ const options = {
   },
 };
 
-export const fetchTrendingMovies = async (signal) => {
+export const fetchTrendingMovies = async () => {
   const url = "/3/trending/movie/day?language=en-US&page=1";
-  const response = await axios.get(url, options, signal);
+  const response = await axios.get(url, options);
   return response.data;
 };
 

@@ -10,7 +10,7 @@ const Movie = ({ movie }) => {
           src={
             movie.backdrop_path
               ? `${baseURL}/${movie.backdrop_path}`
-              : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQke7ku-tpPqDSrW_OpRnv-2kxc2H7Obf_lih6_ZKBkoQ&s"
+              : "https://kartinki.pics/pics/uploads/posts/2022-08/1659664031_1-kartinkin-net-p-kino-abstraktsiya-krasivo-1.jpg"
           }
           className={css.img}
         />

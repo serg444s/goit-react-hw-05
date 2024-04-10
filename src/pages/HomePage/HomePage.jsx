@@ -19,7 +19,7 @@ const HomePage = () => {
         setError(false);
         setLoading(true);
         const data = await fetchTrendingMovies(page);
-        setMovies(data.results);
+        setMovies((prevMovies) => [...prevMovies, ...data.results]);
         setIsVisible(page < data.total_pages);
       } catch (error) {
         setError(error);

@@ -27,7 +27,7 @@ const MoviesPage = () => {
         setError(false);
         setLoading(true);
         const data = await fetchMoviesByQuery(searchQuery, page);
-        setMovies(data.results);
+        setMovies((prevMovies) => [...prevMovies, ...data.results]);
         setIsVisible(page < data.total_pages);
       } catch (error) {
         setError(error);

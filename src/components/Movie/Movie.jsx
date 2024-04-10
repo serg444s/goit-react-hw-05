@@ -10,12 +10,12 @@ const Movie = ({ movie }) => {
           src={
             movie.backdrop_path
               ? `${baseURL}/${movie.backdrop_path}`
-              : "../../../img/movie.jpg"
+              : "../../img/movie.jpg"
           }
           className={css.img}
         />
       </div>
-      <Link to={`/movies/${movie.id}`}>
+      <Link to={`/movies/${movie.id}`} className={css.link}>
         <h3 className={css.title}>{movie.title}</h3>
       </Link>
     </div>

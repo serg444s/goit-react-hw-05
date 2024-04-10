@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  min-height: 600px;
 }
 
 @keyframes logo-spin {
@@ -39,4 +40,5 @@ body {
   padding: 20px;
   background: linear-gradient(rgb(201, 214, 255), rgb(226, 226, 226));
   border-radius: 8px;
+  min-height: 500px;
 }

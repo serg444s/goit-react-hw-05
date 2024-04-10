@@ -1,25 +1,38 @@
 import css from "./MovieDetails.module.css";
+import { FaStar } from "react-icons/fa";
+
 const MovieDetails = ({ movie }) => {
   const baseURL = "https://image.tmdb.org/t/p/w500";
   return (
     <div className={css.container}>
       <div className={css.wrap}>
-        <img src={`${baseURL}/${movie.backdrop_path}`} className={css.img} />
+        <img
+          src={
+            movie.backdrop_path
+              ? `${baseURL}/${movie.backdrop_path}`
+              : "https://kartinki.pics/pics/uploads/posts/2022-08/1659664031_1-kartinkin-net-p-kino-abstraktsiya-krasivo-1.jpg"
+          }
+          className={css.img}
+        />
       </div>
       <h3 className={css.title}>{movie.title}</h3>
-      <p>{movie.overview}</p>
-      <p>Release date: {movie.release_date}</p>
-      <p>Runtime: {movie.runtime}min.</p>
-      <p>Rating: {movie.vote_average}</p>
-      <div>
-        <p>Genres:</p>
-        <ul>
-          {movie.genres.map((genre) => (
-            <li key={genre.id}>
-              <p>{genre.name}</p>
-            </li>
-          ))}
-        </ul>
+      <div className={css.listFlex}>
+        <p className={css.description}>{movie.overview}</p>
+        <p className={css.text}>Release date: {movie.release_date}</p>
+        <p className={css.text}>Runtime: {movie.runtime}min.</p>
+        <p className={css.text}>
+          Rating: {movie.vote_average} <FaStar />
+        </p>
+        <div className={css.listWrap}>
+          <p className={css.text}>Genres:</p>
+          <ul className={css.list}>
+            {movie.genres.map((genre) => (
+              <li key={genre.id} className={css.item}>
+                <p className={css.genre}>{genre.name},</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

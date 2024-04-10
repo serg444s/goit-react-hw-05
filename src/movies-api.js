@@ -9,14 +9,14 @@ const options = {
   },
 };
 
-export const fetchTrendingMovies = async () => {
-  const url = "/3/trending/movie/day?language=en-US&page=1";
+export const fetchTrendingMovies = async (page) => {
+  const url = `/3/trending/movie/day?language=en-US&page=${page}`;
   const response = await axios.get(url, options);
   return response.data;
 };
 
-export const fetchMoviesByQuery = async (query) => {
-  const url = `/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`;
+export const fetchMoviesByQuery = async (query, page) => {
+  const url = `/3/search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`;
   const response = await axios.get(url, options);
   return response.data;
 };
@@ -33,8 +33,8 @@ export const fetchCredits = async (id) => {
   return response.data;
 };
 
-export const fetchReviews = async (id) => {
-  const url = `https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`;
+export const fetchReviews = async (id, page) => {
+  const url = `https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=${page}`;
   const response = await axios.get(url, options);
   return response.data;
 };

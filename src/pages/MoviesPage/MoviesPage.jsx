@@ -8,6 +8,7 @@ import Loader from "../../components/Loader/Loader";
 import MovieSearchForm from "../../components/MovieSearchForm/MovieSearchForm";
 import { useSearchParams } from "react-router-dom";
 import { LoadMoreBtn } from "../../components/LoadMoreBtn/LoadMoreBtn";
+import { Link } from "react-router-dom";
 
 const MoviesPage = () => {
   // const [query, setQuery] = useState("");
@@ -63,6 +64,8 @@ const MoviesPage = () => {
       {isEmpty && movies.length < 1 && !loading && (
         <p>Sorry. There are no movies...</p>
       )}
+      <Link to="credits"></Link>
+      <Link to="reviews"></Link>
     </div>
   );
 };

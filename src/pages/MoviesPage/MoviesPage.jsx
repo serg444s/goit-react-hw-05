@@ -12,6 +12,7 @@ const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +32,9 @@ const MoviesPage = () => {
   }, [query]);
 
   const onSearch = (value) => {
+    setMovies([]);
     setQuery(value);
+    setIsEmpty(true);
   };
 
   return (
@@ -42,6 +45,7 @@ const MoviesPage = () => {
       <Toaster position="top-right" reverseOrder={false} />
       {error && <ErrorMessage />}
       {movies.length > 0 && <MovieList movies={movies} />}
+      {isEmpty && movies.length < 1 && <p>Sorry. There are no movies...</p>}
     </div>
   );
 };

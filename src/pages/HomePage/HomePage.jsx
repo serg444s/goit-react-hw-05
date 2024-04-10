@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loader from "../../components/Loader/Loader";
-import css from "./HomePage.module.css";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);

@@ -11,11 +11,14 @@ const HomePage = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const abortController = new AbortController(); //Создаем новый контроллер
+    const signal = abortController.signal;
+
     const fetchData = async () => {
       try {
         setError(false);
         setLoading(true);
-        const data = await fetchTrendingMovies();
+        const data = await fetchTrendingMovies(signal);
         setMovies(data.results);
       } catch (error) {
         setError(error);
@@ -25,6 +28,9 @@ const HomePage = () => {
       }
     };
     fetchData();
+    return () => {
+      abortController.abort(); // Отмена запроса при размонтировании компонента
+    };
   }, []);
 
   return (

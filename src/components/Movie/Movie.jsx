@@ -10,7 +10,7 @@ const Movie = ({ movie }) => {
           src={
             movie.backdrop_path
               ? `${baseURL}/${movie.backdrop_path}`
-              : "../../img/movie.jpg"
+              : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQke7ku-tpPqDSrW_OpRnv-2kxc2H7Obf_lih6_ZKBkoQ&s"
           }
           className={css.img}
         />

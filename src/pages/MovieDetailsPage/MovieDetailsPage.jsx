@@ -36,9 +36,11 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={css.container}>
-      <Link to={backLinkHref} className={css.link}>
-        Go back
-      </Link>
+      {!loading && (
+        <Link to={backLinkHref} className={css.link}>
+          Go back
+        </Link>
+      )}
       <Toaster position="top-right" reverseOrder={false} />
       {loading && <Loader />}
       {movie && <MovieDetails movie={movie} />}

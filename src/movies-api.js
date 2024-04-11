@@ -27,10 +27,11 @@ export const fetchMoviesById = async (id) => {
   return response.data;
 };
 
+///3/movie/1035982/credits?language=en-US
 export const fetchCredits = async (id) => {
   const url = `/3/movie/${id}/credits?language=en-US`;
   const response = await axios.get(url, options);
-  return response.data;
+  return response.data.cast;
 };
 
 export const fetchReviews = async (id, page) => {

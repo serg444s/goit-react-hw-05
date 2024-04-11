@@ -6,6 +6,7 @@ import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import MovieDetails from "../../components/MovieDetails/MovieDetails";
 import css from "./MovieDetailsPage.module.css";
+import { Link } from "react-router-dom";
 
 const MovieDetailsPage = () => {
   const params = useParams();
@@ -37,6 +38,17 @@ const MovieDetailsPage = () => {
       {loading && <Loader />}
       {movie && <MovieDetails movie={movie} />}
       {error && <ErrorMessage />}
+      {!loading && (
+        <div className={css.info}>
+          <Link to="credits" className={css.link}>
+            Cast
+          </Link>
+          <Link to="reviews" className={css.link}>
+            Reviews
+          </Link>
+        </div>
+      )}
+
       <Outlet />
     </div>
   );

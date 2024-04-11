@@ -13,7 +13,7 @@ const HomePage = () => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [isVisible, setIsVisible] = useState(false);
-  const [time, setTime] = useState("day");
+  const [time, setTime] = useState("week");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +21,10 @@ const HomePage = () => {
         setError(false);
         setLoading(true);
         const data = await fetchTrendingMovies(time, page);
-        setMovies((prevMovies) => [...prevMovies, ...data.results]);
+        console.log(data, Date.now());
+        if (data.results.length > 0) {
+          setMovies((prevMovies) => [...prevMovies, ...data.results]);
+        }
         setIsVisible(page < data.total_pages);
       } catch (error) {
         setError(error);
@@ -41,7 +44,6 @@ const HomePage = () => {
     setMovies([]);
     setPage(1);
     setTime(value);
-    console.log(value);
   };
 
   return (
@@ -49,7 +51,8 @@ const HomePage = () => {
       <Toaster position="top-right" reverseOrder={false} />
       {error && <ErrorMessage />}
       <h2>
-        TOP Movies from: <SelectTime handleChangeTime={handleChangeTime} />
+        TOP Movies of the:{" "}
+        <SelectTime value={time} handleChangeTime={handleChangeTime} />
       </h2>
       {loading && <Loader />}
       <MovieList movies={movies} />

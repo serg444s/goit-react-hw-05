@@ -1,14 +1,12 @@
 .btn {
-  border: 1px solid black;
+  border: none;
   border-radius: 16px;
-  background-color: transparent;
+  background: linear-gradient(to bottom, #2980b9, #6dd5fa);
   transition: all 0.25s ease;
   outline: none;
   margin: 0 auto;
 }
 
 .btn:hover {
-  border-color: blue;
-  box-shadow: 0 4px 6px rgba(0, 0, 255, 0.5);
-  color: blue;
+  color: rgb(240, 255, 36);
 }

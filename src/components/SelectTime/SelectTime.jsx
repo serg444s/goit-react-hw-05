@@ -1,8 +1,9 @@
 import css from "./SelectTime.module.css";
 
-const SelectTime = ({ handleChangeTime }) => {
+const SelectTime = ({ value, handleChangeTime }) => {
   return (
     <select
+      value={value}
       onChange={(e) => handleChangeTime(e.target.value)}
       className={css.select}
     >

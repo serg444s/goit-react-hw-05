@@ -2,7 +2,6 @@ import MovieCreditItem from "../MovieCreditItem/MovieCreditItem";
 import css from "./MovieCreditsList.module.css";
 
 const MovieCreditsList = ({ casts }) => {
-  console.log(casts);
   return (
     <ul className={css.list}>
       {casts.map((cast) => {

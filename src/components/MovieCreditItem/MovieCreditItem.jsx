@@ -1,7 +1,6 @@
 import css from "./MovieCreditItem.module.css";
 
 const MovieCreditItem = ({ cast }) => {
-  console.log(cast);
   const baseURL = "https://image.tmdb.org/t/p/w500";
   return (
     <div className={css.container}>

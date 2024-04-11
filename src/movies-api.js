@@ -35,7 +35,8 @@ export const fetchCredits = async (id) => {
 };
 
 export const fetchReviews = async (id, page) => {
-  const url = `https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=${page}`;
+  console.log(id, page);
+  const url = `/3/movie/${id}/reviews?language=en-US&page=${page}`;
   const response = await axios.get(url, options);
-  return response.data;
+  return response.data.results;
 };

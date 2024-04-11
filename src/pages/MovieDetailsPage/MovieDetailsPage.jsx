@@ -21,7 +21,6 @@ const MovieDetailsPage = () => {
         setLoading(true);
         const data = await fetchMoviesById(params.movieId);
         setMovie(data);
-        console.log(data);
       } catch (error) {
         setError(error);
         toast.error("Whoops, something went wrong!");

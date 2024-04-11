@@ -21,7 +21,6 @@ const HomePage = () => {
         setError(false);
         setLoading(true);
         const data = await fetchTrendingMovies(time, page);
-        console.log(data, Date.now());
         if (data.results.length > 0) {
           setMovies((prevMovies) => [...prevMovies, ...data.results]);
         }

@@ -1,4 +1,4 @@
-import { useParams, Outlet } from "react-router-dom";
+import { useParams, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchMoviesById } from "../../movies-api";
 import toast, { Toaster } from "react-hot-toast";
@@ -13,6 +13,8 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const location = useLocation();
+  const backLinkHref = location.state ?? "/movies";
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -33,6 +35,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={css.container}>
+      <Link to={backLinkHref}>Go back</Link>
       <Toaster position="top-right" reverseOrder={false} />
       {loading && <Loader />}
       {movie && <MovieDetails movie={movie} />}

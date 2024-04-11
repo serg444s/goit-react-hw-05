@@ -5,6 +5,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loader from "../Loader/Loader";
 import { useParams } from "react-router-dom";
 import MovieCreditsList from "../MovieCreditsList/MovieCreditsList";
+import css from "./MovieCast.module.css";
 
 const MovieCast = () => {
   const [casts, setCast] = useState([]);
@@ -13,6 +14,7 @@ const MovieCast = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
+    if (!movieId) return;
     const fetchMovie = async () => {
       try {
         setError(false);
@@ -30,10 +32,10 @@ const MovieCast = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <div className={css.container}>
       <Toaster position="top-right" reverseOrder={false} />
       {error && <ErrorMessage />}
-      <p>Movie Cast</p>
+      <p className={css.title}>Movie Cast</p>
       {loading && <Loader />}
       <MovieCreditsList casts={casts} />
     </div>

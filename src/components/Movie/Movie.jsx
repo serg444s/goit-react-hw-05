@@ -1,7 +1,8 @@
 import css from "./Movie.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Movie = ({ movie }) => {
+  const location = useLocation();
   const baseURL = "https://image.tmdb.org/t/p/w500";
   return (
     <div className={css.container}>
@@ -15,7 +16,11 @@ const Movie = ({ movie }) => {
           className={css.img}
         />
       </div>
-      <Link to={`/movies/${movie.id}`} className={css.link}>
+      <Link
+        to={`/movies/${movie.id}`}
+        className={css.link}
+        state={{ from: location }}
+      >
         <h3 className={css.title}>{movie.title}</h3>
       </Link>
     </div>

@@ -14,7 +14,8 @@ const MovieDetailsPage = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
-  const backLinkHref = location.state ?? "/movies";
+  const backLinkHref = location.state?.from ?? "/movies";
+  console.log(location);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -35,7 +36,9 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={css.container}>
-      <Link to={backLinkHref}>Go back</Link>
+      <Link to={backLinkHref} className={css.link}>
+        Go back
+      </Link>
       <Toaster position="top-right" reverseOrder={false} />
       {loading && <Loader />}
       {movie && <MovieDetails movie={movie} />}

@@ -18,6 +18,7 @@
   padding: 4px;
   border-radius: 8px;
   background: linear-gradient(to bottom, #2980b9, #6dd5fa);
+  margin-bottom: 8px;
 }
 
 .link:hover {

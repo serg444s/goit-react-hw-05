@@ -45,7 +45,11 @@ const MovieReviews = () => {
       {error && <ErrorMessage />}
       <h3 className={css.title}>Movie Reviews</h3>
       {loading && <Loader />}
-      {reviews.length > 0 && <MovieReviewsList reviews={reviews} />}
+      {reviews.length > 0 ? (
+        <MovieReviewsList reviews={reviews} />
+      ) : (
+        <p>Sorry. There are no results...</p>
+      )}
       {isVisible && !loading && <LoadMoreBtn onLoadMore={onLoadMore} />}
     </div>
   );

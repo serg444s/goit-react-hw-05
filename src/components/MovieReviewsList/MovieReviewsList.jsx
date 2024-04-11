@@ -1,4 +1,4 @@
-import css from "./MovieList.module.css";
+import css from "./MovieReviewsList.module.css";
 
 const MovieReviewsList = ({ reviews }) => {
   return (
@@ -6,9 +6,11 @@ const MovieReviewsList = ({ reviews }) => {
       {reviews.map((review) => {
         return (
           <li key={review.id} className={css.item}>
-            <p>{review.author}</p>
-            <p>Rating: {review.author_details.rating}</p>
-            <p>{review.content}</p>
+            <p className={css.list}>
+              Author name: {review.author}. Rating:{" "}
+              {review.author_details.rating}.
+            </p>
+            <p className={css.desc}>{review.content}</p>
           </li>
         );
       })}

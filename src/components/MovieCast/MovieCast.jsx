@@ -37,7 +37,11 @@ const MovieCast = () => {
       {error && <ErrorMessage />}
       <p className={css.title}>Movie Cast</p>
       {loading && <Loader />}
-      {casts.length > 0 && <MovieCreditsList casts={casts} />}
+      {casts.length > 0 ? (
+        <MovieCreditsList casts={casts} />
+      ) : (
+        <p>Sorry. There are no results...</p>
+      )}
     </div>
   );
 };

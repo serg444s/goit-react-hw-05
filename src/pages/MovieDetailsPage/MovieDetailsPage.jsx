@@ -1,5 +1,5 @@
 import { useParams, Outlet, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { fetchMoviesById } from "../../movies-api";
 import toast, { Toaster } from "react-hot-toast";
 import Loader from "../../components/Loader/Loader";
@@ -14,10 +14,12 @@ const MovieDetailsPage = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? "/movies";
-  console.log(location);
+  const backLinkHref = useRef(location.state?.from ?? "/movies");
+  const previousHref = useRef(null);
+  const backLink = backLinkHref.current;
 
   useEffect(() => {
+    previousHref.current = backLink;
     const fetchMovie = async () => {
       try {
         setError(false);
@@ -32,12 +34,12 @@ const MovieDetailsPage = () => {
       }
     };
     fetchMovie();
-  }, [params.movieId]);
+  }, [params.movieId, backLink]);
 
   return (
     <div className={css.container}>
       {!loading && (
-        <Link to={backLinkHref} className={css.link}>
+        <Link to={backLinkHref.current} className={css.link}>
           Go back
         </Link>
       )}

@@ -49,7 +49,7 @@ const MovieDetailsPage = () => {
       {error && <ErrorMessage />}
       {!loading && (
         <div className={css.info}>
-          <Link to="credits" className={css.link}>
+          <Link to="cast" className={css.link}>
             Cast
           </Link>
           <Link to="reviews" className={css.link}>
